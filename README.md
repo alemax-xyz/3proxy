@@ -1,7 +1,7 @@
 ## 3proxy docker image
 
-[3proxy](https://github.com/3proxy/3proxy) is a proxy designed to add TLS encryption functionality to existing clients and servers without any changes in the programs' code.
-Its architecture is optimized for security, portability, and scalability (including load-balancing), making it suitable for large deployments.
+[3proxy](https://github.com/3proxy/3proxy) is a is a small, highly configurable, multi-protocol proxy server designed for resource-constrained systems, supporting HTTP, HTTPS, SOCKS, FTP, and more with fine-grained access control.
+It emphasizes minimal footprint, modular architecture, and flexible authentication and traffic management features.
 
 This image is based on official [3proxy](https://github.com/3proxy/3proxy) builds for debian and it is built on top of the [clover/common](https://hub.docker.com/r/clover/common/).
 
