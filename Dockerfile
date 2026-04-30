@@ -5,7 +5,7 @@ RUN groupadd \
         --system \
         proxy \
  && useradd \
-        --home-dir /var/lib/openvpn \
+        --home-dir /var/lib/3proxy \
         --no-create-home \
         --system \
         --shell /bin/false \
@@ -18,14 +18,11 @@ FROM library/debian:stable-slim AS build
 ENV LANG=C.UTF-8
 
 RUN export DEBIAN_FRONTEND=noninteractive \
- && apt-get update \
- && apt-get install -y \
-        apt-utils
+ && apt-get update
 
 RUN export DEBIAN_FRONTEND=noninteractive \
  && apt-get install -y \
-        wget \
-        gnupg
+        wget
 
 RUN mkdir -p /build/image
 WORKDIR /build
@@ -53,7 +50,7 @@ RUN mkdir -p \
  && touch etc/3proxy/3proxy.cfg
 
 COPY --from=base /etc/group /etc/gshadow /etc/passwd /etc/shadow etc/
-COPY init/ etc/init/
+COPY etc/ etc/
 
 FROM clover/common
 
